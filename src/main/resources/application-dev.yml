@@ -1,0 +1,11 @@
+spring:
+  # PostgreSQL
+  datasource:
+    port: 5432
+    schema: qa_shopee
+    hikari:
+      connectionTimeout: 20000
+      maximum-pool-size: 5
+    url: jdbc:postgresql://localhost:${spring.datasource.port}/postgres?currentSchema=${spring.datasource.schema}
+    username: postgres
+    password: postgres

@@ -1,0 +1,12 @@
+server:
+  port: 8070
+spring:
+  application:
+    name: batch
+  profiles:
+    active: dev
+  batch:
+    jdbc:
+      initialize-schema: always
+    job:
+      enabled: false
