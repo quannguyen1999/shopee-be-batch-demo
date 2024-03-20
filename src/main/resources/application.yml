@@ -13,3 +13,5 @@ spring:
   jackson:
     serialization:
       FAIL_ON_EMPTY_BEANS: false
+  main:
+    allow-bean-definition-overriding: true

@@ -29,7 +29,8 @@ public class ConstantValue {
             CommonBaseEntities.Fields.userUpdated
     );
 
-    public static final List<String> LIST_FIELD_PRODUCT = Arrays.asList(Product.Fields.id
+    public static final List<String> LIST_FIELD_PRODUCT = Arrays.asList(
+            Product.Fields.id
             , Product.Fields.name
             , Product.Fields.image
             , Product.Fields.quantity
@@ -37,8 +38,8 @@ public class ConstantValue {
             , Product.Fields.discount
             , Product.Fields.description);
 
-    public static final List<String> LIST_FIELD_CATEGORY = Arrays.asList(Product.Fields.id
-            , Category.Fields.id
+    public static final List<String> LIST_FIELD_CATEGORY = Arrays.asList(
+            Category.Fields.id
             , Category.Fields.name
             , Category.Fields.image
     );
