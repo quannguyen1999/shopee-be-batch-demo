@@ -1,6 +1,7 @@
-package com.shopee.ecommer.models;
+package com.shopee.ecommer.models.entities;
 
 import lombok.*;
+import lombok.experimental.FieldNameConstants;
 
 import java.util.UUID;
 
@@ -10,7 +11,8 @@ import java.util.UUID;
 @Setter
 @Builder
 @ToString
-public class Product {
+@FieldNameConstants
+public class Product extends CommonBaseEntities {
 
     private UUID id;
 
