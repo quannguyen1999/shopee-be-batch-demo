@@ -10,6 +10,10 @@ import java.util.List;
 
 
 public class ConstantValue {
+    public static final String FILE_PATH = "src/main/resources/static/response/";
+
+    public static final String DELIMITER = "|";
+
     public static final String JSON = "Json";
     public static final String CSV = "Csv";
 

@@ -2,6 +2,8 @@ package com.shopee.ecommer.utils;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
+import com.shopee.ecommer.constants.ConstantValue;
+import com.shopee.ecommer.models.request.BatchRequest;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.util.ObjectUtils;
 
@@ -64,6 +66,14 @@ public class FunctionUtils {
     public static List<String> includeCreateUpdate(List<String> columns) {
         compileList.addAll(columns);
         return columns;
+    }
+
+    public static String getCurrentFilePath(BatchRequest request) {
+        StringBuilder path = new StringBuilder();
+        path.append(ConstantValue.FILE_PATH).append(request.getTypeFile()).append("/")
+                .append(request.getTable()).append(".").append(request.getTypeFile());
+        log.info(path.toString());
+        return path.toString();
     }
 
 

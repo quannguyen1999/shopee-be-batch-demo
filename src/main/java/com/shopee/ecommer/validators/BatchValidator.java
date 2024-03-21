@@ -28,6 +28,7 @@ public class BatchValidator extends CommonValidator {
     }
 
     static Consumer<String> checkIsTableExists() {
+        ;
         return (input) -> {
             if (Stream.of(
                     Product.class.getSimpleName(),

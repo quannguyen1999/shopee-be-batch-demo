@@ -1,8 +1,12 @@
 package com.shopee.ecommer.models.request;
 
-import lombok.Data;
+import lombok.*;
 
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @Data
+@ToString
 public class BatchRequest {
 
     public String table;

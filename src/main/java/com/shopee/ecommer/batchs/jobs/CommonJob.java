@@ -36,4 +36,12 @@ public class CommonJob {
                 .build();
     }
 
+    @Bean
+    public Job fileToJsonJob(JobRepository jobRepository, Step stepFileToSqlCommon) {
+        return new JobBuilder("fileToJsonJob", jobRepository)
+                .incrementer(new RunIdIncrementer())
+                .start(stepFileToSqlCommon)
+                .build();
+    }
+
 }

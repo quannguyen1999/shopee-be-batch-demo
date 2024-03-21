@@ -9,3 +9,11 @@ spring:
     url: jdbc:postgresql://localhost:${spring.datasource.port}/postgres?currentSchema=${spring.datasource.schema}
     username: postgres
     password: postgres
+
+logging:
+  level:
+    com:
+      shopee:
+        ecommer:
+          batchs:
+            listeners: DEBUG

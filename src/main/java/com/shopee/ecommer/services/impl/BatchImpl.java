@@ -32,11 +32,29 @@ public class BatchImpl implements BatchService {
     @Autowired
     private Job sqlToCsvJob;
 
+    @Qualifier("fileToJsonJob")
+    @Autowired
+    private Job fileToJsonJob;
+
     @Autowired
     private BatchValidator batchValidator;
 
     @Override
-    public void executeBatch(BatchRequest batchRequest) throws JsonProcessingException, JobInstanceAlreadyCompleteException, JobExecutionAlreadyRunningException, JobParametersInvalidException, JobRestartException {
+    public void executeBatchFile(BatchRequest batchRequest) throws JsonProcessingException, JobInstanceAlreadyCompleteException, JobExecutionAlreadyRunningException, JobParametersInvalidException, JobRestartException {
+        batchValidator.validateBatch(batchRequest);
+        JobParameters jobParameters = new JobParametersBuilder()
+                .addString("timestamp", String.valueOf(System.currentTimeMillis()))
+                .addString("batchRequest", FunctionUtils.ow.writeValueAsString(batchRequest))
+                .toJobParameters();
+//        if (batchRequest.getTypeFile().equalsIgnoreCase(ConstantValue.CSV)) {
+        jobLauncher.run(fileToJsonJob, jobParameters);
+//        } else if (batchRequest.getTypeFile().equalsIgnoreCase(ConstantValue.JSON)) {
+//            jobLauncher.run(fileToJsonJob, jobParameters);
+//        }
+    }
+
+    @Override
+    public void executeBatchSql(BatchRequest batchRequest) throws JsonProcessingException, JobInstanceAlreadyCompleteException, JobExecutionAlreadyRunningException, JobParametersInvalidException, JobRestartException {
         batchValidator.validateBatch(batchRequest);
         JobParameters jobParameters = new JobParametersBuilder()
                 .addString("timestamp", String.valueOf(System.currentTimeMillis()))
@@ -47,6 +65,5 @@ public class BatchImpl implements BatchService {
         } else if (batchRequest.getTypeFile().equalsIgnoreCase(ConstantValue.JSON)) {
             jobLauncher.run(sqlToJsonJob, jobParameters);
         }
-
     }
 }
