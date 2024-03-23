@@ -4,6 +4,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.shopee.ecommer.constants.ConstantValue;
 import com.shopee.ecommer.models.request.BatchRequest;
 import com.shopee.ecommer.services.BatchService;
+import com.shopee.ecommer.utils.BatchUtils;
 import com.shopee.ecommer.utils.FunctionUtils;
 import com.shopee.ecommer.validators.BatchValidator;
 import org.springframework.batch.core.Job;
@@ -42,28 +43,44 @@ public class BatchImpl implements BatchService {
     @Override
     public void executeBatchFile(BatchRequest batchRequest) throws JsonProcessingException, JobInstanceAlreadyCompleteException, JobExecutionAlreadyRunningException, JobParametersInvalidException, JobRestartException {
         batchValidator.validateBatch(batchRequest);
-        JobParameters jobParameters = new JobParametersBuilder()
-                .addString("timestamp", String.valueOf(System.currentTimeMillis()))
-                .addString("batchRequest", FunctionUtils.ow.writeValueAsString(batchRequest))
-                .toJobParameters();
-//        if (batchRequest.getTypeFile().equalsIgnoreCase(ConstantValue.CSV)) {
-        jobLauncher.run(fileToJsonJob, jobParameters);
-//        } else if (batchRequest.getTypeFile().equalsIgnoreCase(ConstantValue.JSON)) {
-//            jobLauncher.run(fileToJsonJob, jobParameters);
-//        }
+        runJob(batchRequest, buildJobParameters(batchRequest));
     }
 
     @Override
     public void executeBatchSql(BatchRequest batchRequest) throws JsonProcessingException, JobInstanceAlreadyCompleteException, JobExecutionAlreadyRunningException, JobParametersInvalidException, JobRestartException {
         batchValidator.validateBatch(batchRequest);
-        JobParameters jobParameters = new JobParametersBuilder()
-                .addString("timestamp", String.valueOf(System.currentTimeMillis()))
-                .addString("batchRequest", FunctionUtils.ow.writeValueAsString(batchRequest))
-                .toJobParameters();
+        runJob(batchRequest, buildJobParameters(batchRequest));
+    }
+
+    @Override
+    public void executeFileSqlToFileAll(String typeFile) throws JsonProcessingException, JobInstanceAlreadyCompleteException, JobExecutionAlreadyRunningException, JobParametersInvalidException, JobRestartException {
+        BatchRequest batchRequest = BatchRequest.builder()
+                .typeFile(typeFile)
+                .build();
+        batchValidator.validateBatchExecuteAllFile(batchRequest);
+        BatchUtils.getListClassesByPackage(ConstantValue.SCAN_PACKAGE_ENTITIES).forEach(val -> {
+            try {
+                batchRequest.setTable(val.getSimpleName());
+                runJob(batchRequest, buildJobParameters(batchRequest));
+            } catch (JsonProcessingException | JobInstanceAlreadyCompleteException |
+                     JobExecutionAlreadyRunningException | JobParametersInvalidException | JobRestartException e) {
+                throw new RuntimeException(e);
+            }
+        });
+    }
+
+    private void runJob(BatchRequest batchRequest, JobParameters jobParameters) throws JobInstanceAlreadyCompleteException, JobExecutionAlreadyRunningException, JobParametersInvalidException, JobRestartException {
         if (batchRequest.getTypeFile().equalsIgnoreCase(ConstantValue.CSV)) {
             jobLauncher.run(sqlToCsvJob, jobParameters);
         } else if (batchRequest.getTypeFile().equalsIgnoreCase(ConstantValue.JSON)) {
             jobLauncher.run(sqlToJsonJob, jobParameters);
         }
+    }
+
+    private JobParameters buildJobParameters(BatchRequest batchRequest) throws JsonProcessingException {
+        return new JobParametersBuilder()
+                .addString("timestamp", String.valueOf(System.currentTimeMillis()))
+                .addString("batchRequest", FunctionUtils.ow.writeValueAsString(batchRequest)).toJobParameters();
+
     }
 }

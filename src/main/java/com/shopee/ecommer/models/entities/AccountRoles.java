@@ -12,12 +12,10 @@ import java.util.UUID;
 @Builder
 @ToString
 @FieldNameConstants
-public class Category extends CommonBaseEntities {
-    
-    private UUID id;
+public class AccountRoles {
 
-    private String name;
+    private UUID accountId;
 
-    private String image;
+    private String roleId;
 
 }

@@ -15,8 +15,8 @@ public class BatchCommand {
     @Autowired
     private BatchService batchService;
 
-    @Command(command = "eb-s", description = "Execute batch Sql")
-    public ResponseEntity<String> executeBatchSql(String table, String typeFile) throws Exception {
+    @Command(command = "stf", description = "Execute batch Sql to File")
+    public ResponseEntity<String> executeSqlToFile(String table, String typeFile) throws Exception {
         batchService.executeBatchSql(BatchRequest.builder()
                 .table(table)
                 .typeFile(typeFile)
@@ -24,14 +24,19 @@ public class BatchCommand {
         return ResponseEntity.status(HttpStatus.OK).body(HttpStatus.OK.toString());
     }
 
-    @Command(command = "eb-f", description = "Execute batch File")
-    public ResponseEntity<String> executeBatchFile(String table, String typeFile) throws Exception {
+    @Command(command = "stf-a", description = "Execute All batch File To Sql")
+    public ResponseEntity<String> executeFileSqlToFileAll(String typeFile) throws Exception {
+        batchService.executeFileSqlToFileAll(typeFile);
+        return ResponseEntity.status(HttpStatus.OK).body(HttpStatus.OK.toString());
+    }
+
+    @Command(command = "fts", description = "Execute batch File To Sql")
+    public ResponseEntity<String> executeFileToSql(String table, String typeFile) throws Exception {
         batchService.executeBatchFile(BatchRequest.builder()
                 .table(table)
                 .typeFile(typeFile)
                 .build());
         return ResponseEntity.status(HttpStatus.OK).body(HttpStatus.OK.toString());
     }
-
 
 }

@@ -7,7 +7,6 @@ import com.shopee.ecommer.models.request.BatchRequest;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.util.ObjectUtils;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -16,8 +15,6 @@ import static com.shopee.ecommer.constants.ConstantValue.*;
 
 @Slf4j
 public class FunctionUtils {
-
-    private static final List<String> compileList = new ArrayList<>(LIST_FIELD_COMMON);
 
     //Convert Object to Json
     public static final ObjectWriter ow = new ObjectMapper().writer().withDefaultPrettyPrinter();
@@ -56,15 +53,17 @@ public class FunctionUtils {
 
     //Get Query
     public static String getQueryIncludeCreateUpdated(List<String> columns, String table) {
-        compileList.addAll(columns);
-        String resultQuery = String.join(SPACE, Arrays.asList(SELECT, handlerListToCamelCase(compileList), FROM, table));
+        includeCreateUpdate(columns, table);
+        String resultQuery = String.join(SPACE, Arrays.asList(SELECT, handlerListToCamelCase(columns), FROM, camelCaseToSnakeCase(table)));
         log.info(resultQuery);
         return resultQuery;
     }
 
     //Get Query with Create Update
-    public static List<String> includeCreateUpdate(List<String> columns) {
-        compileList.addAll(columns);
+    public static List<String> includeCreateUpdate(List<String> columns, String tableName) {
+        if (ConstantValue.IGNORE_CLASS_CREATED_UPDATED.stream().noneMatch(t -> t.equalsIgnoreCase(tableName))) {
+            columns.addAll(LIST_FIELD_COMMON);
+        }
         return columns;
     }
 

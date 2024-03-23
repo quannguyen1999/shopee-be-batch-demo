@@ -28,4 +28,5 @@ public class Product extends CommonBaseEntities {
 
     private String description;
 
+
 }

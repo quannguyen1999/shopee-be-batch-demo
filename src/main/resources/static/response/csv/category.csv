@@ -1,7 +1,29 @@
-id,name,image
-ee940083-5a0b-405d-9529-4c5734c91119,Thiết Bị Điện Tử,https://i.etsystatic.com/16033598/r/il/23ec25/4591117326/il_fullxfull.4591117326_bhi7.jpg
-90172f75-e72d-4fbd-9db0-42ce8ca0493b,Máy Tính & Laptop,https://i.etsystatic.com/16033598/r/il/23ec25/4591117326/il_fullxfull.4591117326_bhi7.jpg
-4dbd8168-b297-470d-b4f1-9c0dd1058fa2,Máy Ảnh & Máy Quay Phim,https://i.etsystatic.com/16033598/r/il/23ec25/4591117326/il_fullxfull.4591117326_bhi7.jpg
-44a1b3a7-4462-4343-a657-d6b5d901a587,Đồng Hồ,https://i.etsystatic.com/16033598/r/il/23ec25/4591117326/il_fullxfull.4591117326_bhi7.jpg
-cd3c9e5a-fa3b-41d7-b020-ceda6790320f,Giày Dép Nam,https://i.etsystatic.com/16033598/r/il/23ec25/4591117326/il_fullxfull.4591117326_bhi7.jpg
-38458bbb-5848-49ce-b53c-e12ff47d30fd,Giày Dép Nam,https://i.etsystatic.com/16033598/r/il/23ec25/4591117326/il_fullxfull.4591117326_bhi7.jpg
+id,name,image,created,updated,userCreated,userUpdated
+77ef6d31-6dc9-421d-99b9-266ff45b07f2|Thời Trang Nam|https://i.etsystatic.com/16033598/r/il/23ec25/4591117326/il_fullxfull.4591117326_bhi7.jpg|2024-03-14 10:33:55.318687|2024-03-14 10:33:55.318687|admin|admin
+f0230141-0e47-480a-b157-7835110326c7|Điện Thoại & Phụ Kiện |https://i.etsystatic.com/16033598/r/il/23ec25/4591117326/il_fullxfull.4591117326_bhi7.jpg|2024-03-14 10:34:22.530079|2024-03-14 10:34:22.530079|admin|admin
+ee940083-5a0b-405d-9529-4c5734c91119|Thiết Bị Điện Tử|https://i.etsystatic.com/16033598/r/il/23ec25/4591117326/il_fullxfull.4591117326_bhi7.jpg|2024-03-14 10:34:35.338434|2024-03-14 10:34:35.338434|admin|admin
+90172f75-e72d-4fbd-9db0-42ce8ca0493b|Máy Tính & Laptop|https://i.etsystatic.com/16033598/r/il/23ec25/4591117326/il_fullxfull.4591117326_bhi7.jpg|2024-03-14 10:34:56.733132|2024-03-14 10:34:56.733132|admin|admin
+4dbd8168-b297-470d-b4f1-9c0dd1058fa2|Máy Ảnh & Máy Quay Phim|https://i.etsystatic.com/16033598/r/il/23ec25/4591117326/il_fullxfull.4591117326_bhi7.jpg|2024-03-14 10:35:13.968628|2024-03-14 10:35:13.968628|admin|admin
+44a1b3a7-4462-4343-a657-d6b5d901a587|Đồng Hồ|https://i.etsystatic.com/16033598/r/il/23ec25/4591117326/il_fullxfull.4591117326_bhi7.jpg|2024-03-14 10:35:25.178264|2024-03-14 10:35:25.178264|admin|admin
+cd3c9e5a-fa3b-41d7-b020-ceda6790320f|Giày Dép Nam|https://i.etsystatic.com/16033598/r/il/23ec25/4591117326/il_fullxfull.4591117326_bhi7.jpg|2024-03-14 10:35:41.08282|2024-03-14 10:35:41.08282|admin|admin
+38458bbb-5848-49ce-b53c-e12ff47d30fd|Giày Dép Nam|https://i.etsystatic.com/16033598/r/il/23ec25/4591117326/il_fullxfull.4591117326_bhi7.jpg|2024-03-14 10:37:23.91048|2024-03-14 10:37:23.91048|admin|admin
+1660bd00-27b5-463a-bb86-c19b2fe34480|Thiết Bị Điện Gia Dụng|https://i.etsystatic.com/16033598/r/il/23ec25/4591117326/il_fullxfull.4591117326_bhi7.jpg|2024-03-14 10:37:36.332762|2024-03-14 10:37:36.332762|admin|admin
+d4a498d3-9052-4db9-97e1-184bb83ee19d|Thể Thao & Du Lịch|https://i.etsystatic.com/16033598/r/il/23ec25/4591117326/il_fullxfull.4591117326_bhi7.jpg|2024-03-14 10:37:44.86793|2024-03-14 10:37:44.86793|admin|admin
+5929c17c-2f54-4e02-b77a-9834adcb273c|Ô Tô & Xe Máy & Xe Đạp|https://i.etsystatic.com/16033598/r/il/23ec25/4591117326/il_fullxfull.4591117326_bhi7.jpg|2024-03-14 10:38:01.406262|2024-03-14 10:38:01.406262|admin|admin
+7b061562-58a8-4bd8-8786-6eebbed47f58|Thời Trang Nữ|https://i.etsystatic.com/16033598/r/il/23ec25/4591117326/il_fullxfull.4591117326_bhi7.jpg|2024-03-14 10:38:13.745737|2024-03-14 10:38:13.745737|admin|admin
+e3285a51-b069-486d-a521-c7cad8c69b13|Mẹ & Bé|https://i.etsystatic.com/16033598/r/il/23ec25/4591117326/il_fullxfull.4591117326_bhi7.jpg|2024-03-14 10:38:23.235369|2024-03-14 10:38:23.235369|admin|admin
+a60469bd-12d9-4688-ac74-1c96d32e92aa|Nhà Cửa & Đời Sống|https://i.etsystatic.com/16033598/r/il/23ec25/4591117326/il_fullxfull.4591117326_bhi7.jpg|2024-03-14 10:38:37.302027|2024-03-14 10:38:37.302027|admin|admin
+80fdba47-ac65-4d81-b167-f268ca87d546|Sắc Đẹp|https://i.etsystatic.com/16033598/r/il/23ec25/4591117326/il_fullxfull.4591117326_bhi7.jpg|2024-03-14 10:38:47.490574|2024-03-14 10:38:47.490574|admin|admin
+634e1861-1e90-4e91-b4a9-96decd618c15|Sức Khoẻ|https://i.etsystatic.com/16033598/r/il/23ec25/4591117326/il_fullxfull.4591117326_bhi7.jpg|2024-03-14 10:38:54.702085|2024-03-14 10:38:54.702085|admin|admin
+9ebd3867-d6c7-44d7-8dcd-1d07a171e29a|Giày Dép Nữ|https://i.etsystatic.com/16033598/r/il/23ec25/4591117326/il_fullxfull.4591117326_bhi7.jpg|2024-03-14 10:39:06.571564|2024-03-14 10:39:06.571564|admin|admin
+6eda0b30-9173-454b-8391-4699b6f86860|Túi Ví Nữ|https://i.etsystatic.com/16033598/r/il/23ec25/4591117326/il_fullxfull.4591117326_bhi7.jpg|2024-03-14 10:39:14.935943|2024-03-14 10:39:14.935943|admin|admin
+a7fb0674-7c4f-4a31-ad6b-56a449716935|Phụ Kiện Và Trang Sức Nữ|https://i.etsystatic.com/16033598/r/il/23ec25/4591117326/il_fullxfull.4591117326_bhi7.jpg|2024-03-14 10:39:30.841237|2024-03-14 10:39:30.841237|admin|admin
+a162790d-0ae6-4456-8c18-12df04d0602c|Bách Hoá Online|https://i.etsystatic.com/16033598/r/il/23ec25/4591117326/il_fullxfull.4591117326_bhi7.jpg|2024-03-14 10:39:37.287058|2024-03-14 10:39:37.287058|admin|admin
+6355f60d-84ec-43e9-a8cf-165966b8fb0f|Nhà Sách Online|https://i.etsystatic.com/16033598/r/il/23ec25/4591117326/il_fullxfull.4591117326_bhi7.jpg|2024-03-14 10:39:44.706641|2024-03-14 10:39:44.706641|admin|admin
+63210148-8f76-4dd7-bd91-eda475244084|Balo & Túi Ví Nam|https://i.etsystatic.com/16033598/r/il/23ec25/4591117326/il_fullxfull.4591117326_bhi7.jpg|2024-03-14 10:40:08.927415|2024-03-14 10:40:08.927415|admin|admin
+8b8614d2-eca1-4352-b4b9-b8867f974232|Thời Trang Trẻ Em|https://i.etsystatic.com/16033598/r/il/23ec25/4591117326/il_fullxfull.4591117326_bhi7.jpg|2024-03-14 10:40:21.086748|2024-03-14 10:40:21.086748|admin|admin
+1bc2b144-629a-410f-8d2b-19ee3a1b95d6|Đồ Chơi|https://i.etsystatic.com/16033598/r/il/23ec25/4591117326/il_fullxfull.4591117326_bhi7.jpg|2024-03-14 10:40:28.012604|2024-03-14 10:40:28.012604|admin|admin
+c4dc33ec-5db0-4249-818f-e8d8b4a03b86|Giặt Giủ4 & Chăm Sóc Nhà Cửa|https://i.etsystatic.com/16033598/r/il/23ec25/4591117326/il_fullxfull.4591117326_bhi7.jpg|2024-03-14 10:40:44.17474|2024-03-14 10:40:44.17474|admin|admin
+56af5456-bfe1-4305-a5ba-e190e33058a7|Chăm Sóc Thú Cưng |https://i.etsystatic.com/16033598/r/il/23ec25/4591117326/il_fullxfull.4591117326_bhi7.jpg|2024-03-14 10:40:54.145839|2024-03-14 10:40:54.145839|admin|admin
+1a6672e8-ce60-4d42-843a-176fb7977d8d|Vouncher & Dịch Vụ |https://i.etsystatic.com/16033598/r/il/23ec25/4591117326/il_fullxfull.4591117326_bhi7.jpg|2024-03-14 10:41:09.767069|2024-03-14 10:41:09.767069|admin|admin
+46d62494-793f-4947-9370-39710fda9e59|Dụng Cụ và thiết bị tiện ích|https://i.etsystatic.com/16033598/r/il/23ec25/4591117326/il_fullxfull.4591117326_bhi7.jpg|2024-03-14 10:41:23.433978|2024-03-14 10:41:23.433978|admin|admin

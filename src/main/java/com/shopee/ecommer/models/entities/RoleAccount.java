@@ -3,8 +3,6 @@ package com.shopee.ecommer.models.entities;
 import lombok.*;
 import lombok.experimental.FieldNameConstants;
 
-import java.util.UUID;
-
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
@@ -12,12 +10,10 @@ import java.util.UUID;
 @Builder
 @ToString
 @FieldNameConstants
-public class Category extends CommonBaseEntities {
-    
-    private UUID id;
+public class RoleAccount extends CommonBaseEntities {
+
+    private String code;
 
     private String name;
-
-    private String image;
 
 }
