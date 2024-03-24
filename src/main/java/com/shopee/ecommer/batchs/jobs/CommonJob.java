@@ -37,10 +37,10 @@ public class CommonJob {
     }
 
     @Bean
-    public Job fileToJsonJob(JobRepository jobRepository, Step stepFileToSqlCommon) {
-        return new JobBuilder("fileToJsonJob", jobRepository)
+    public Job csvToSqlJob(JobRepository jobRepository, Step stepCsvToSqlCommon) {
+        return new JobBuilder("csvToSqlJob", jobRepository)
                 .incrementer(new RunIdIncrementer())
-                .start(stepFileToSqlCommon)
+                .start(stepCsvToSqlCommon)
                 .build();
     }
 

@@ -27,6 +27,16 @@ public class ConstantValue {
 
     public static final String FROM = "from";
 
+    public static final String INSERT = "insert";
+
+    public static final String INTO = "into";
+
+    public static final String VALUES = "values";
+
+    public static final String OPEN = "(";
+
+    public static final String CLOSE = ")";
+
 
     //Package Scan Entities
     public static final String SCAN_PACKAGE_ENTITIES = "com.shopee.ecommer.models.entities";

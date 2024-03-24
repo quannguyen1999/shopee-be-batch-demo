@@ -13,11 +13,12 @@ import java.util.UUID;
 @ToString
 @FieldNameConstants
 public class Category extends CommonBaseEntities {
-    
+
     private UUID id;
 
     private String name;
 
     private String image;
+
 
 }

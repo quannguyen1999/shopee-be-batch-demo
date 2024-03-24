@@ -1,6 +1,7 @@
 package com.shopee.ecommer.models.response;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 
 import java.util.List;
@@ -11,6 +12,7 @@ import java.util.List;
 //@XmlRootElement(name = "error")
 @Data
 @AllArgsConstructor
+@Builder
 public class ErrorResponse {
     //tên lỗi
     public String message;

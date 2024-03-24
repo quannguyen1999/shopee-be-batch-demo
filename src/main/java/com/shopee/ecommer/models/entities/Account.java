@@ -3,7 +3,6 @@ package com.shopee.ecommer.models.entities;
 import lombok.*;
 import lombok.experimental.FieldNameConstants;
 
-import java.util.Date;
 import java.util.UUID;
 
 @NoArgsConstructor
@@ -21,7 +20,7 @@ public class Account extends CommonBaseEntities {
 
     private String password;
 
-    private Date birthday;
+    private String birthday;
 
     private Boolean gender;
 

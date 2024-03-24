@@ -33,9 +33,13 @@ public class BatchImpl implements BatchService {
     @Autowired
     private Job sqlToCsvJob;
 
-    @Qualifier("fileToJsonJob")
+//    @Qualifier("jsonToSqlJob")
+//    @Autowired
+//    private Job jsonToSqlJob;
+
+    @Qualifier("csvToSqlJob")
     @Autowired
-    private Job fileToJsonJob;
+    private Job csvToSqlJob;
 
     @Autowired
     private BatchValidator batchValidator;
@@ -43,17 +47,26 @@ public class BatchImpl implements BatchService {
     @Override
     public void executeBatchFile(BatchRequest batchRequest) throws JsonProcessingException, JobInstanceAlreadyCompleteException, JobExecutionAlreadyRunningException, JobParametersInvalidException, JobRestartException {
         batchValidator.validateBatch(batchRequest);
-        runJob(batchRequest, buildJobParameters(batchRequest));
+        runJob(batchRequest, buildJobParameters(batchRequest), false);
     }
 
     @Override
     public void executeBatchSql(BatchRequest batchRequest) throws JsonProcessingException, JobInstanceAlreadyCompleteException, JobExecutionAlreadyRunningException, JobParametersInvalidException, JobRestartException {
         batchValidator.validateBatch(batchRequest);
-        runJob(batchRequest, buildJobParameters(batchRequest));
+        runJob(batchRequest, buildJobParameters(batchRequest), true);
     }
 
     @Override
     public void executeFileSqlToFileAll(String typeFile) throws JsonProcessingException, JobInstanceAlreadyCompleteException, JobExecutionAlreadyRunningException, JobParametersInvalidException, JobRestartException {
+        handlerCommonBatch(typeFile, true);
+    }
+
+    @Override
+    public void executeFileToSqlAll(String typeFile) throws JsonProcessingException, JobInstanceAlreadyCompleteException, JobExecutionAlreadyRunningException, JobParametersInvalidException, JobRestartException {
+        handlerCommonBatch(typeFile, false);
+    }
+
+    private void handlerCommonBatch(String typeFile, Boolean isSqlToFile) {
         BatchRequest batchRequest = BatchRequest.builder()
                 .typeFile(typeFile)
                 .build();
@@ -61,7 +74,7 @@ public class BatchImpl implements BatchService {
         BatchUtils.getListClassesByPackage(ConstantValue.SCAN_PACKAGE_ENTITIES).forEach(val -> {
             try {
                 batchRequest.setTable(val.getSimpleName());
-                runJob(batchRequest, buildJobParameters(batchRequest));
+                runJob(batchRequest, buildJobParameters(batchRequest), isSqlToFile);
             } catch (JsonProcessingException | JobInstanceAlreadyCompleteException |
                      JobExecutionAlreadyRunningException | JobParametersInvalidException | JobRestartException e) {
                 throw new RuntimeException(e);
@@ -69,11 +82,16 @@ public class BatchImpl implements BatchService {
         });
     }
 
-    private void runJob(BatchRequest batchRequest, JobParameters jobParameters) throws JobInstanceAlreadyCompleteException, JobExecutionAlreadyRunningException, JobParametersInvalidException, JobRestartException {
+    private void runJob(BatchRequest batchRequest, JobParameters jobParameters, Boolean isSqlToFile) throws JobInstanceAlreadyCompleteException, JobExecutionAlreadyRunningException, JobParametersInvalidException, JobRestartException {
         if (batchRequest.getTypeFile().equalsIgnoreCase(ConstantValue.CSV)) {
-            jobLauncher.run(sqlToCsvJob, jobParameters);
+            System.out.println("FUck");
+            System.out.println(isSqlToFile);
+            System.out.println(isSqlToFile ? "sqlToCsvJob" : "csvToSqlJob");
+            jobLauncher.run(isSqlToFile ? sqlToCsvJob : csvToSqlJob, jobParameters);
+//            jobLauncher.run(sqlToCsvJob, jobParameters);
         } else if (batchRequest.getTypeFile().equalsIgnoreCase(ConstantValue.JSON)) {
-            jobLauncher.run(sqlToJsonJob, jobParameters);
+//            System.out.println(isSqlToFile ? "jsonToSqlJob" : "sqlToJsonJo");
+//            jobLauncher.run(isSqlToFile ? jsonToSqlJob : sqlToJsonJob, jobParameters);
         }
     }
 

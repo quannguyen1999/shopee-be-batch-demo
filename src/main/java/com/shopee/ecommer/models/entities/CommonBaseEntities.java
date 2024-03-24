@@ -5,17 +5,15 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.FieldNameConstants;
 
-import java.util.Date;
-
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
 @FieldNameConstants
 public class CommonBaseEntities {
 
-    private Date created;
+    private String created;
 
-    private Date updated;
+    private String updated;
 
     private String userCreated;
 

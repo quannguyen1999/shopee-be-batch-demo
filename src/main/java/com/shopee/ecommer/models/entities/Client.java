@@ -3,8 +3,6 @@ package com.shopee.ecommer.models.entities;
 import lombok.*;
 import lombok.experimental.FieldNameConstants;
 
-import java.util.Date;
-
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
@@ -22,13 +20,13 @@ public class Client {
 
     private String clientId;
 
-    private Date clientIdIssuedAt;
+    private String clientIdIssuedAt;
 
     private String clientName;
 
     private String clientSecret;
 
-    private Date clientSecretExpiresAt;
+    private String clientSecretExpiresAt;
 
     private String clientSettings;
 

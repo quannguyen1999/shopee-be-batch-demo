@@ -1,8 +1,10 @@
 package com.shopee.ecommer.utils;
 
+import com.shopee.ecommer.batchs.statements.*;
 import com.shopee.ecommer.constants.ConstantValue;
 import com.shopee.ecommer.models.entities.*;
 import com.shopee.ecommer.models.request.BatchRequest;
+import org.springframework.batch.item.database.ItemPreparedStatementSetter;
 import org.springframework.util.ObjectUtils;
 
 import java.io.BufferedReader;
@@ -17,9 +19,21 @@ import java.util.stream.Collectors;
 
 public class BatchUtils {
 
+    public static Function<Boolean, Boolean> isBooleanEmpty() {
+        return (input) -> {
+            return !ObjectUtils.isEmpty(input) && input;
+        };
+    }
+
     private static BiFunction<Class, BatchRequest, Class> compareString() {
         return (inputClass, inputBatch) -> {
             return inputClass.getSimpleName().equalsIgnoreCase(inputBatch.getTable()) ? inputClass : null;
+        };
+    }
+
+    private static BiFunction<Class, BatchRequest, Boolean> compareClass() {
+        return (inputClass, inputBatch) -> {
+            return inputClass.getSimpleName().equalsIgnoreCase(inputBatch.getTable());
         };
     }
 
@@ -31,6 +45,34 @@ public class BatchUtils {
 
     public static List<String> getListFieldByCondition(BatchRequest batchRequest) {
         return getListFieldByClass().apply(getClassByCondition(batchRequest));
+    }
+
+    public static ItemPreparedStatementSetter getStatementByCondition(BatchRequest request) {
+        if (compareClass().apply(Account.class, request)) {
+            return new AccountStatement();
+        }
+
+        if (compareClass().apply(AccountRoles.class, request)) {
+            return new AccountRolesStatement();
+        }
+
+        if (compareClass().apply(Category.class, request)) {
+            return new CategoryStatement();
+        }
+
+        if (compareClass().apply(Client.class, request)) {
+            return new ClientStatement();
+        }
+
+        if (compareClass().apply(Product.class, request)) {
+            return new ProductStatement();
+        }
+
+        if (compareClass().apply(RoleAccount.class, request)) {
+            return new RoleAccountStatement();
+        }
+
+        return null;
     }
 
     public static Class getClassByCondition(BatchRequest request) {
@@ -55,7 +97,6 @@ public class BatchUtils {
         if (ObjectUtils.isEmpty(result)) {
             result = compareString().apply(RoleAccount.class, request);
         }
-
         return result;
     }
 

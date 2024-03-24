@@ -10,7 +10,7 @@ import lombok.experimental.FieldNameConstants;
 @Builder
 @ToString
 @FieldNameConstants
-public class RoleAccount extends CommonBaseEntities {
+public class RoleAccount {
 
     private String code;
 

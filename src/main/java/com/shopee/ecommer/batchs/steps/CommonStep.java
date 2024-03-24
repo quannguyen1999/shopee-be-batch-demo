@@ -55,13 +55,13 @@ public class CommonStep {
     }
 
     @Bean
-    public Step stepFileToSqlCommon(JobRepository jobRepository,
-                                    DataSourceTransactionManager transactionManager
+    public Step stepCsvToSqlCommon(JobRepository jobRepository,
+                                   DataSourceTransactionManager transactionManager
     ) throws JsonProcessingException {
-        return new StepBuilder("stepFileToSqlCommon", jobRepository)
+        return new StepBuilder("stepCsvToSqlCommon", jobRepository)
                 .chunk(2, transactionManager)
                 .reader(commonReader.flatFileItemReader(null))
-                .writer(commonWriter.jdbcWriter())
+                .writer(commonWriter.jdbcWriter(null))
                 .faultTolerant()
                 .skip(Throwable.class)
                 .skipPolicy(new AlwaysSkipItemSkipPolicy())

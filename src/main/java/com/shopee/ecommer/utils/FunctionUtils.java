@@ -7,6 +7,7 @@ import com.shopee.ecommer.models.request.BatchRequest;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.util.ObjectUtils;
 
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -16,6 +17,9 @@ import static com.shopee.ecommer.constants.ConstantValue.*;
 @Slf4j
 public class FunctionUtils {
 
+    public static final SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+
+
     //Convert Object to Json
     public static final ObjectWriter ow = new ObjectMapper().writer().withDefaultPrettyPrinter();
 
@@ -23,7 +27,7 @@ public class FunctionUtils {
     public static final ObjectMapper mapper = new ObjectMapper();
 
     //IsActive -> is_active
-    private static String camelCaseToSnakeCase(String input) {
+    public static String camelCaseToSnakeCase(String input) {
         if (input == null || input.isEmpty()) {
             return input;
         }
@@ -44,7 +48,7 @@ public class FunctionUtils {
     }
 
     //Convert List
-    private static String handlerListToCamelCase(List<String> list) {
+    public static String handlerListToCamelCase(List<String> list) {
         if (ObjectUtils.isEmpty(list)) {
             return null;
         }

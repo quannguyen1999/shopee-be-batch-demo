@@ -39,4 +39,10 @@ public class BatchCommand {
         return ResponseEntity.status(HttpStatus.OK).body(HttpStatus.OK.toString());
     }
 
+    @Command(command = "fts-a", description = "Execute All batch File To Sql")
+    public ResponseEntity<String> executeFileToSqlAll(String typeFile) throws Exception {
+        batchService.executeFileToSqlAll(typeFile);
+        return ResponseEntity.status(HttpStatus.OK).body(HttpStatus.OK.toString());
+    }
+
 }
